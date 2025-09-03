@@ -1,11 +1,21 @@
+import MealGird from "@/components/meals/meal-grid";
 import Link from "next/link";
+
+import meals  from '../../faker/mealsFaker.ts';
 
 export default function MealsPage(){
     return (
-        <div className="">
-            <p className="w-[100%] my-[1em] p-[10px] font-[700] rounded-[10px] bg-[tomato]"> <Link href='/meals/meal-one' >Meal One</Link> </p>
-            <p className="w-[100%] my-[1em] p-[10px] font-[700] rounded-[10px] bg-[tomato]"><Link href='/meals/meal-two' >Meal ywo</Link> </p>
-            <p className="w-[100%] my-[1em] p-[10px] font-[700] rounded-[10px] bg-[tomato]"><Link href='/meals/meal-three' >Meal three</Link> </p>
-        </div>
-    );
+        <>
+            <header className="w-[80%] mx-[auto] h-[15em] bg-[red]">
+                <h1 className="">Delecious meals , created{' '}<span className="">by you</span> </h1>
+                <p className="">chose your favorate recipe and cook it your self , it is easy and fun !</p>
+                <p className="">
+                    <Link href='/meals/share' className="" >share your favorate recipe</Link>
+                </p>
+            </header>
+            <main className="w-[80%] mx-[auto] h-[15em] bg-[green]">
+                <MealGird meals={meals} />
+            </main>
+        </>
+    );  
 }

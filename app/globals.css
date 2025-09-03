@@ -13,6 +13,11 @@
   text-shadow: 0 0 18px rgb(248, 190, 42, .8);
 }
 
+.gird-meals{
+      display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
