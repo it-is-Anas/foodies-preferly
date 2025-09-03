@@ -5,6 +5,14 @@
   --foreground: #171717;
 }
 
+.text-active:hover{
+  background: linear-gradient(90deg,#ff8a05,#f9b331);
+  background-clip: text;
+  --webkit-background-clip: text;
+  --webkit-text-fill-color: transparent;
+  text-shadow: 0 0 18px rgb(248, 190, 42, .8);
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

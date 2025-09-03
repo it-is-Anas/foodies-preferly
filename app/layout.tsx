@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import appbg from '../assets/appbg.png'; 
+import MainHeader from "@/components/main-header/main-header";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +15,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="overflow-x-hidden" >
-        <div className="relative ">
-          <img className="w-[100dvw] h-[100dvh]  absolute top-0 left-0 z-[-1]" src={appbg.src} alt="" />
+        <div className=" ">
+          <MainHeader />
           {children}
         </div>
       </body>
