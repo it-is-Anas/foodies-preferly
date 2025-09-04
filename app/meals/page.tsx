@@ -1,14 +1,23 @@
 import MealGird from "@/components/meals/meal-grid";
 import Link from "next/link";
 
-import food1 from '../../assets/food1.png';
 
 import { getMeals } from '../../lib/meals';
+import { Suspense } from "react";
+
+import LoadingPage from './loading-out';
+
+
+async function DisplayMeals(){
+    const meals = await getMeals ();
+
+    return <MealGird meals={meals} />;
+}
 
 export default async function MealsPage(){
 
 
-    const meals = await getMeals ();
+    
 
 
     return (
@@ -20,8 +29,10 @@ export default async function MealsPage(){
                     <Link href='/meals/share' className="" >share your favorate recipe</Link>
                 </p>
             </header>
-            <main className="w-[80%] mx-[auto]">
-                <MealGird meals={meals} />
+            <main className="w-[80%] h-[50vh] mx-[auto] relative">
+                <Suspense fallback={<LoadingPage />} >
+                    <DisplayMeals />
+                </Suspense>
             </main>
         </>
     );  
