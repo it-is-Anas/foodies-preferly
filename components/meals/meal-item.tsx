@@ -7,7 +7,9 @@ export default function MealItem({title,slug,image,summary,creator}:
     return (
         <article className="w-[20em] p-[10px] m-[4px] rounded-[10px] bg-[#2f2f2f] text-[#f2f2f2]">
             <header className="w-[100%] h-[100%] flex flex-col justify-start items-start ">
-                <Image src={image} alt={title}  className='w-[20em] h-[15em]'  ></Image>
+                <img src={image} alt={title}   />
+                {/* <Image src={image} alt={title}  fill  ></Image> */}
+                {/* <Image src={image} alt={title}  className='w-[20em] h-[15em]'  ></Image> */}
                 <div className=" mr-[auto] flex flex-col justify-start items-start">
                     <h2 className="font-[600] text-[1.4em]"> { title } </h2>
                     <p className="text-[.8em]">by { creator } </p>

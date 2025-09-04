@@ -3,51 +3,13 @@ import Link from "next/link";
 
 import food1 from '../../assets/food1.png';
 
+import { getMeals } from '../../lib/meals';
+
 export default function MealsPage(){
 
 
-    const meals:{id:number,title:string,slug:string,image: any ,summary: string ,creator:string }[] = [
-        {
-            id: 1,
-            title: 'Donatelos choclate!',
-            slug: 'xchjk',
-            image: food1,
-            summary: 'a delicouse food here you can see delicouse food here you can see delicouse food here you can see ...',
-            creator: 'Me',
-        },
-        {
-            id: 133,
-            title: 'Donatelos choclate!',
-            slug: 'xchjk',
-            image: food1,
-            summary: 'a delicouse food here you can see delicouse food here you can see delicouse food here you can see ...',
-            creator: 'Me',
-        },
-        {
-            id: 21,
-            title: 'Donatelos choclate!',
-            slug: 'xchjk',
-            image: food1,
-            summary: 'a delicouse food here you can see delicouse food here you can see delicouse food here you can see ...',
-            creator: 'Me',
-        },
-        {
-            id: 13,
-            title: 'Donatelos choclate!',
-            slug: 'xchjk',
-            image: food1,
-            summary: 'a delicouse food here you can see delicouse food here you can see delicouse food here you can see ...',
-            creator: 'Me',
-        },
-        {
-            id: 11,
-            title: 'Donatelos choclate!',
-            slug: 'xchjk',
-            image: food1,
-            summary: 'a delicouse food here you can see delicouse food here you can see delicouse food here you can see ...',
-            creator: 'Me',
-        },
-    ];
+    const meals = getMeals ();
+
 
     return (
         <>
