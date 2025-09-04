@@ -10,7 +10,6 @@ import LoadingPage from './loading-out';
 
 async function DisplayMeals(){
     const meals = await getMeals ();
-
     return <MealGird meals={meals} />;
 }
 
