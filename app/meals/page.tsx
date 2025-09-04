@@ -5,10 +5,10 @@ import food1 from '../../assets/food1.png';
 
 import { getMeals } from '../../lib/meals';
 
-export default function MealsPage(){
+export default async function MealsPage(){
 
 
-    const meals = getMeals ();
+    const meals = await getMeals ();
 
 
     return (
