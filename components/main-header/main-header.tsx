@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import appLogo from '../../assets/logo.png';
-import appbg from '../../assets/appBg.png'; 
+import appbg from '../../assets/appbg.png'; 
 import NavLink from "./navLink";
 
 export default function MainHeader(){
