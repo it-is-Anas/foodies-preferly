@@ -1,19 +1,11 @@
+
 import FormInput from "@/components/form/form-input";
 import ImagePicker from "@/components/form/image-picker";
+import { shareMeal } from '@/lib/actions';
+
 
 export default function ShareMealsPage(){
-    async function shareMeal(formData){
-        'use server';
-        const meal = {
-            title: formData.get('title'),
-            summary: formData.get('summary'),
-            creator: formData.get('name'),
-            creator_email: formData.get('email'),
-            image: formData.get('image'),
-            instructions: formData.get('instructions'),
-        };
-        console.log(meal);
-    }
+    
     return (
         <>
             <header className="w-[80%] mx-[auto]">
