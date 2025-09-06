@@ -1,6 +1,7 @@
 
 import FormInput from "@/components/form/form-input";
 import ImagePicker from "@/components/form/image-picker";
+import SubmitBtn from "@/components/form/submit-btn";
 import { shareMeal } from '@/lib/actions';
 
 
@@ -33,7 +34,7 @@ export default function ShareMealsPage(){
                         </p>
                         <ImagePicker label="image" name="image" />
                         <p className={`flex  items-center justify-end w-[24.4em]`}>
-                            <button className="bg-[orange] py-[5px] px-[10px] rounded-[5px] font-[400] text-[white] my-[5px]" type="submit"> share meal </button>
+                            <SubmitBtn />
                         </p>
                     </div>
                 </form>
