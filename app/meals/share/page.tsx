@@ -2,6 +2,18 @@ import FormInput from "@/components/form/form-input";
 import ImagePicker from "@/components/form/image-picker";
 
 export default function ShareMealsPage(){
+    async function shareMeal(formData){
+        'use server';
+        const meal = {
+            title: formData.get('title'),
+            summary: formData.get('summary'),
+            creator: formData.get('name'),
+            creator_email: formData.get('email'),
+            image: formData.get('image'),
+            instructions: formData.get('instructions'),
+        };
+        console.log(meal);
+    }
     return (
         <>
             <header className="w-[80%] mx-[auto]">
@@ -11,21 +23,21 @@ export default function ShareMealsPage(){
                 <p className="text-[1.3em] py-[10px]">Or any other meal you feel needs sharing !</p>
             </header>
             <main className="w-[80%] mx-[auto]">
-                <form action="" className="">
+                <form action="" className="" action={shareMeal} >
                     <div className="">
                         <div className="flex justify-start items-center">
-                            <FormInput label="name" />
-                            <FormInput label="email" />
+                            <FormInput label="name" name='name' />
+                            <FormInput label="email" name='email' />
                         </div>
                         <div className="flex justify-start items-center">
-                            <FormInput cls="w-[27em]" label="title" />
+                            <FormInput cls="w-[27em]" label="title" name='title' />
                         </div>
                         <div className="flex justify-start items-center">
-                            <FormInput cls="w-[27em]"  label="summary" />
+                            <FormInput cls="w-[27em]"  label="summary" name='summary' />
                         </div>
                         <p className={`flex-col flex w-[27em]`} >
                             <label htmlFor='instrcs' className="">{'instructions'}</label>
-                            <textarea className="text-[#f2f2f2] px-[10px] py-[5px] h-[7em] rounded-[5px] border border-1px border-solid broder-[gray] bg-[#2f2f2f] m-[5px] w-[90%]" name="" id="instrcs"></textarea>
+                            <textarea name='instructions' className="text-[#f2f2f2] px-[10px] py-[5px] h-[7em] rounded-[5px] border border-1px border-solid broder-[gray] bg-[#2f2f2f] m-[5px] w-[90%]" name="" id="instrcs"></textarea>
                         </p>
                         <ImagePicker label="image" name="image" />
                         <p className={`flex  items-center justify-end w-[24.4em]`}>

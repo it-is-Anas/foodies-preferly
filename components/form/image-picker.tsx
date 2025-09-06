@@ -27,6 +27,8 @@ export default function ImagePicker({label,name}:{
         fileReader.readAsDataURL(file);
     }
 
+    
+
     return(
         <div className="">
             <label htmlFor={name} className="hidden">{ label }</label>
