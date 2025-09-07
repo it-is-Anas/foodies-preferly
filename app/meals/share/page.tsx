@@ -8,8 +8,7 @@ import { useActionState } from "react";
 
 interface FormState {
   message?: string;
-  errors?: Record<string, string[]>;
-}
+};
 
 const initialState: FormState = {};
 

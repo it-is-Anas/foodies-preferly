@@ -3,48 +3,51 @@
 import Image from "next/image";
 import { ReactNode, useRef, useState } from "react";
 
-export default function ImagePicker({label,name}:{
-    label:string,
-    name:string,
-}){
-    const [pickedImg,setPickedImg] = useState();
-    const inputElement = useRef<any>();
+export default function ImagePicker({ label, name }: {
+    label: string;
+    name: string;
+}) {
+    const [pickedImg, setPickedImg] = useState<string | null>(null);
+    const inputElement = useRef<HTMLInputElement>(null);
 
-    function handleClick(){
-        if(inputElement.current && inputElement.current.click)
+    function handleClick() {
+        if (inputElement.current) {
             inputElement.current.click();
-    }   
+        }
+    }
 
-    function handleImgChange(event){
-        const file = event.target.files[0];
-        if(!file){
-            return ;
+    function handleImgChange(event: React.ChangeEvent<HTMLInputElement>) {
+        const file = event.target.files?.[0];
+        if (!file) {
+            return;
         }
         const fileReader = new FileReader();
-        fileReader.onload = ()=>{
-            setPickedImg(fileReader.result);
+        fileReader.onload = () => {
+            setPickedImg(fileReader.result as string);
         };
         fileReader.readAsDataURL(file);
     }
 
-    
-
-    return(
+    return (
         <div className="">
-            <label htmlFor={name} className="hidden">{ label }</label>
+            <label htmlFor={name} className="hidden">{label}</label>
             <div className="">
-                <div className="relative  !border !border-solid !border-[1px] rounded-[2px]  w-[6em] h-[6em]  max-h-[10em] flex justify-center items-center ">
-                    {!pickedImg && 
+                <div className="relative !border !border-solid !border-[1px] rounded-[2px] w-[6em] h-[6em] max-h-[10em] flex justify-center items-center">
+                    {!pickedImg &&
                         <p className="text-[10px] w-[80%] text-center">No Image picked yet</p>
                     }
 
-                    {
-                        pickedImg &&
-                        <Image src={pickedImg} alt='the image selected by the user ' fill />
+                    {pickedImg &&
+                        <Image
+                            src={pickedImg}
+                            alt='the image selected by the user'
+                            fill
+                            style={{ objectFit: 'cover' }}
+                        />
                     }
                 </div>
-                <input 
-                    className="hidden" 
+                <input
+                    className="hidden"
                     type='file'
                     id={name}
                     accept="image/png, image/jpeg"
@@ -53,7 +56,11 @@ export default function ImagePicker({label,name}:{
                     onChange={handleImgChange}
                 />
             </div>
-            <button onClick={handleClick} className="bg-[royalblue] text-[#f2f2f2] py-[5px] px-[15px] my-[5px] rounded-[3px]" type="button" >
+            <button
+                onClick={handleClick}
+                className="bg-[royalblue] text-[#f2f2f2] py-[5px] px-[15px] my-[5px] rounded-[3px]"
+                type="button"
+            >
                 pick an image
             </button>
         </div>
